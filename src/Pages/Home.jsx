@@ -1,10 +1,13 @@
-import React from 'react'
-import styled, {css} from 'styled-components'
+import React, {useRef, useEffect} from 'react'
+import styled from 'styled-components'
 import Navbar from '../Components/Navbar'
 import Hero from '../Components/Hero'
 import Featured from '../Components/Featured'
 import Skills from '../Components/Skills'
 import Footer  from '../Components/Footer'
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import elixi from '../Images/elixi.PNG'
 import papa from '../Images/papadapulos.PNG'
@@ -20,61 +23,69 @@ const Container = styled.div`
     height: 100%;
 `
 const FeaturedContainer = styled.div`
-    margin-top: 50%;
+    margin-top: 60%;
 
-    @media(max-width: 1235px){
+    /* @media(max-width: 1235px){
         margin-top: 60%;
-    }
+    } */
 
     @media(max-width: 1084px){
-        margin-top: 70%;
+        margin-top: 90%;
     }
 
     @media(max-width: 1001px){
-        margin-top: 140%;
+        margin-top: 205%;
     }
-    @media(max-width: 973px){
-        margin-top: 150%;
+    @media(max-width: 965px){
+        margin-top: 240%;
+
     }
 
     @media(max-width: 937px){
-        margin-top: 170%;
+        margin-top: 260%;
+
+    }
+
+    @media(max-width: 825px){
+        margin-top: 290%;
     }
 
     @media(max-width: 808px){
-        margin-top: 190%;
-    }
-
-    @media(max-width: 737px){
-        margin-top: 210%;
-    }
-
-    @media(max-width:671px){
-        margin-top: 240%;
-    }
-    
-    @media(max-width:585px){
-        margin-top: 260%;
-    }
-    
-    @media(max-width:535px){
-        margin-top: 280%;
-    }
-    
-    @media(max-width:506px){
         margin-top: 300%;
     }
 
-    @media(max-width:455px){
-        margin-top: 330%;
+    @media(max-width: 737px){
+        margin-top: 350%;
+        
     }
 
+    /* @media(max-width:671px){
+        margin-top: 350%;
+        
+    } */
+    
+    @media(max-width:585px){
+        margin-top: 430%;
+    }
+    
+    /* @media(max-width:535px){
+        margin-top: 280%;
+    } */
+    
+    @media(max-width:515px){
+        margin-top: 500%;
+    }
+
+    /* @media(max-width:455px){
+        margin-top: 330%;
+    } */
+
     @media(max-width:375px){
-        margin-top: 370%;
+        margin-top: 550%;
     }
 
     @media(max-width:320px){
-        margin-top: 430%;
+        margin-top: 570%;
     }
     
     @media(min-width: 1024px) and (max-width: 1025px) and (min-height: 1366px) and (max-height: 1366px){
@@ -89,6 +100,10 @@ const HireMe = styled.div`
     display: flex;
     justify-content: center;
     cursor: context-menu;
+    position: relative;
+    z-index: -1;
+    top: 15%;
+    opacity: 0;
 
     a{  
         text-decoration: none;
@@ -120,6 +135,24 @@ const HireMe = styled.div`
 
 
 const Home = () => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    let hireMeRef = useRef(null)
+    
+    useEffect(() => {
+        gsap.to(hireMeRef.current, {
+            scrollTrigger: {
+             trigger: hireMeRef.current   
+            },
+
+            top: "0",
+            opacity: 1,
+            duration: 2
+            
+        })
+    
+    }, [])
+
     return (
         <HomeContainer>
            <Navbar/>
@@ -158,7 +191,7 @@ const Home = () => {
                 />
             </FeaturedContainer>
             
-            <HireMe><h1>Like What you See?<a href='https://wa.me/96178839346' target='_blank'>Hire Me</a></h1></HireMe>
+            <HireMe ref={hireMeRef}><h1>Like What you See?<a href='https://wa.me/96178839346' target='_blank' rel='noreferrer'>Hire Me</a></h1></HireMe>
             <Footer></Footer>                   
         </HomeContainer>
     )

@@ -4,8 +4,8 @@ import styled from 'styled-components'
 const CardContainer = styled.div`
     width: 31% !important;
     height: 380px;
-
-
+    
+    
     /* min-width: 340px; */
     /* max-width: 370px; */
     /* margin-right: 25px; */

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+
+import {TweenMax} from 'gsap'
 
 
 const FooterSection = styled.div`
@@ -79,7 +81,7 @@ const LinksContainer = styled.div`
         margin-right: 0em;
     }
 `
-const NavLink = styled(Link)`
+const Lnk = styled.a`
     text-decoration: none;
     font-weight: 500;
     font-size: .8em;
@@ -130,6 +132,20 @@ const FooterDiv = styled.div`
 `
 
 let Footer = () => {
+    
+    let footerSvg = useRef([0, 0, 0, 0, 0, 0])  
+    footerSvg.current = footerSvg.current.map(item => React.createRef())
+    
+    useEffect(() => {
+        TweenMax.to(footerSvg.current[1].current, 4, {attr: {"fill-opacity": 0.91}}).repeat(16).yoyo(true)
+        TweenMax.to(footerSvg.current[2].current, 3, {attr: {"fill-opacity": 0.91}}).repeat(16).yoyo(true)
+        TweenMax.to(footerSvg.current[3].current, 5, {attr: {"fill-opacity": 1}}).repeat(10).yoyo(true)
+        TweenMax.to(footerSvg.current[4].current, 2, {attr: {cx:"300", cy: "180", r:"60"}}).repeat(2).yoyo(true)
+        TweenMax.to(footerSvg.current[5].current, 2, {attr: {r:"60"}}).repeat(2).yoyo(true)
+        
+    }, [])
+    
+    
     return (
         <FooterSection>
            <Container>
@@ -137,21 +153,22 @@ let Footer = () => {
                     <Logo>Karim</Logo>
                     
                     <LinksContainer>
-                        <NavLink to='#'>My work</NavLink>
-                        <NavLink to='#'>My skills</NavLink>
-                        <NavLink to='#'>Hire Me</NavLink>
+                        <Lnk href="#work">My work</Lnk>
+                        <Lnk href="#skills">My skills</Lnk>
+                        <Lnk href="https://wa.me/96178839346" target="_blank">Hire Me</Lnk>
                     </LinksContainer>
                 </Content>
             </Container>
             
             <FooterDiv>
-                <svg width="360" height="360" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="240" width="120" height="120" rx="23" fill="#5D00D7" fill-opacity="0.91"/>
-                    <rect x="120" y="120" width="120" height="120" rx="23" fill="white"/>
-                    <rect x="240" y="240" width="120" height="120" rx="23" fill="white"/>
-                    <rect y="240" width="120" height="120" rx="23" fill="white" fill-opacity="0.4"/>
-                    <circle cx="300" cy="180" r="60" fill="#FF64CB"/>
-                    <circle cx="180" cy="300" r="60" fill="#E8DEED"/>
+                <svg width="360" height="360" viewBox="0 0 360 360" fill="none">
+                    <rect ref={footerSvg.current[0]} x="240" width="120" height="120" rx="23" fill="#5D00D7" fill-opacity="1"/>
+                    <rect ref={footerSvg.current[1]} x="120" y="120" width="120" height="120" rx="23" fill="white"/>
+                    <rect ref={footerSvg.current[2]} x="240" y="240" width="120" height="120" rx="23" fill="white"/>
+                    <rect ref={footerSvg.current[3]} y="240" width="120" height="120" rx="23" fill="white" fill-opacity="0"/>
+                    
+                    <circle ref={footerSvg.current[4]} cx="300" cy="25" r="70" fill="#FF64CB"/>
+                    <circle ref={footerSvg.current[5]} cx="180" cy="300" r="50" fill="#E8DEED"/>
                 </svg>
             </FooterDiv>
             

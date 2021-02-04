@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react'
 import styled from 'styled-components'
-import hero from '../Images/hero-design.svg'
+
 
 import {TweenMax} from 'gsap'
 
@@ -105,30 +105,26 @@ const Content = styled.div`
 const Hero = () => {
     let scroll = useRef() //{current: svg}
     let animate_scroll
-    let animate_hero
     let hero_container = useRef()
     let hero_design = useRef([])
     hero_design.current = [0,0,0,0,0,0,0,0].map((ref, index) => hero_design.current[index] = React.createRef())
     
 
     useEffect(() => {
-            // animate_scroll = TweenMax.to(scroll.current, 1.2, {attr:{cy: 40.8788}})    
-            // animate_scroll.repeat(-1).yoyo(true)    
+            animate_scroll = TweenMax.to(scroll.current, 1.2, {attr:{cy: 40.8788}})    
+            animate_scroll.repeat(-1).yoyo(true)    
         
-        
-        TweenMax.to(hero_container.current, 2, {visibility: "visible", height: "calc(100% - 80px)"})    
+            TweenMax.to(hero_container.current, 2, {visibility: "visible", height: "calc(100% - 80px)"})    
 
+            TweenMax.to(hero_design.current[0].current, .8, {attr:{"fill-opacity": 0.91}}).repeat(10).yoyo(true)    
+            TweenMax.to(hero_design.current[1].current, 2.3, {attr:{"fill-opacity": 0.5}}).repeat(6).yoyo(true)    
+            TweenMax.to(hero_design.current[2].current, .1, {attr:{"fill-opacity": 1}}).repeat(6).yoyo(true)    
+            TweenMax.to(hero_design.current[3].current, 1.3, {attr:{"fill-opacity": 1}}).repeat(12).yoyo(true)    
+            TweenMax.to(hero_design.current[4].current, 1.5, {attr:{"fill-opacity": 1}}).repeat(10).yoyo(true)    
+            TweenMax.to(hero_design.current[5].current, 2, {attr:{"fill-opacity": .8}}).repeat(10).yoyo(true)    
         
-        // TweenMax.to(hero_design.current[1].current, 1, {attr:{"fill-opacity": 0.5}}).repeat(5).yoyo(true)    
-        TweenMax.to(hero_design.current[0].current, .8, {attr:{"fill-opacity": 0.91}}).repeat(10).yoyo(true)    
-        TweenMax.to(hero_design.current[1].current, 2.3, {attr:{"fill-opacity": 0.5}}).repeat(6).yoyo(true)    
-        TweenMax.to(hero_design.current[2].current, .1, {attr:{"fill-opacity": 1}}).repeat(6).yoyo(true)    
-        TweenMax.to(hero_design.current[3].current, 1.3, {attr:{"fill-opacity": 1}}).repeat(12).yoyo(true)    
-        TweenMax.to(hero_design.current[4].current, 1.5, {attr:{"fill-opacity": 1}}).repeat(10).yoyo(true)    
-        TweenMax.to(hero_design.current[5].current, 2, {attr:{"fill-opacity": .8}}).repeat(10).yoyo(true)    
-    
-        TweenMax.to(hero_design.current[6].current, 1, {attr:{"cx": 166 ,"cy": 274}}).repeat(3).yoyo(true)    
-        TweenMax.to(hero_design.current[7].current, 1, {"cx":276 ,"cy":164}).repeat(1).yoyo(true)    
+            TweenMax.to(hero_design.current[6].current, 1, {attr:{"cx": 166 ,"cy": 274}}).repeat(3).yoyo(true)    
+            TweenMax.to(hero_design.current[7].current, 1, {"cx":276 ,"cy":164}).repeat(1).yoyo(true)    
     }, [])
 
     return (

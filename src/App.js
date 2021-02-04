@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import styled from 'styled-components'
 import './App.css';
 import Home from './Pages/Home'
 import { GlobalStyle } from './GlobalStyle'
 import {BrowserRouter as Router} from 'react-router-dom'
+// import logo from './logo.svg';
 
 const Main = styled.div`
   width: 100%;

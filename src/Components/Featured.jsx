@@ -11,7 +11,7 @@ const FeaturedSection = styled.div`
     height: 100%;
     padding: ${(props) => (props.reversed ? '3em 6em 0 0;' : '3em 0 0 6em;')}; 
     /* padding: 0 0 0 0;     */
-    
+        
     ${(props) => (!props.reversed && props.showCircle && css`&::before{
         position: absolute;
         content: '';
@@ -63,12 +63,12 @@ const FeaturedContent = styled.div`
     width: 35%;
     margin-left: ${(props) => (props.reversed? 'auto': '0')};
     
-    
+    opacity: 0;    
 
     
     ${(props) => (props.reversed ? css`
         position: relative;
-        right:  -45%; ` :
+        right:  -46%; ` :
         css`
         position: relative;
         left: -45%; `  
@@ -127,12 +127,12 @@ const Image = styled.img`
     width: 790px;
     height: 450px;
 
-    ${(props) => (props.reversed && css`right: 48%; ` )}
-    ${(props) => (!props.reversed && css`left: 48%; ` )}
+    /* ${(props) => (props.reversed && css`right: 48%; ` )}
+    ${(props) => (!props.reversed && css`left: 48%; ` )} */
 
-    /* OLD animation
+    opacity: 0.2;
     ${(props) => (!props.reversed && css`left: 98%; ` )}     
-    ${(props) => (props.reversed && css`right: 98%; ` )} */
+    ${(props) => (props.reversed && css`right: 98%; ` )}
 
 
     @media(max-width:1095px){
@@ -166,32 +166,61 @@ const Image = styled.img`
     
 
 
-const Featured = ({reversed, showCircle, smheading, heading2, paragraph, source, mt}) => {
+const Featured = ({reversed, showCircle, smheading, heading2, paragraph, source}) => {
     gsap.registerPlugin(ScrollTrigger)
 
     let contentRef = useRef() 
     let imageRef = useRef()
     
     useEffect(() => {
-        gsap.to(contentRef.current, {
-            scrollTrigger: contentRef.current,
-            duration: 2,
+        gsap.to(contentRef.current, 
+            {
+                scrollTrigger: {
+                    trigger: contentRef.current,
+                    start: 'top-=20px center',
+                    // markers: true
+            },
+            duration: 1,
+            opacity: 1,
             right: "0",
             left: "0"
         })
+
+        ///* ${(props) => (props.reversed && css`right: 48%; ` )}
+        // ${(props) => (!props.reversed && css`left: 48%; ` )} */
+        reversed ? gsap.to(imageRef.current, {
+            scrollTrigger: {
+                trigger: imageRef.current,
+                // markers: true
+            },
+            duration: 2,
+            opacity: 1,
+            right: "48%"
+            
+        }) : gsap.to(imageRef.current, {
+            scrollTrigger: {
+                trigger: imageRef.current,
+                // markers: true
+            },
+            duration: 2,
+            opacity: 1,
+            left: "48%"
+            
+        })
         
-    }, [])
+        
+    })
 
     
     return(
-        <FeaturedSection reversed={reversed} showCircle={showCircle} mt={mt}>
+        <FeaturedSection id='work' reversed={reversed} showCircle={showCircle}>
             <FeaturedContent ref={contentRef} reversed={reversed}>
                 <SmHeading>{smheading}</SmHeading>
                 <Heading2>{heading2}</Heading2>
                 <Paragraph>{paragraph}</Paragraph>
             </FeaturedContent>
             
-            <Image ref={imageRef} reversed={reversed} src={source}></Image>
+            <Image  ref={imageRef} reversed={reversed} src={source}></Image>
             
         </FeaturedSection>
     )

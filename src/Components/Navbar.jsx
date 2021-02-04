@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 import {FaLinkedinIn} from 'react-icons/fa'
-import {DiGithubAlt, DiGithubFull} from 'react-icons/di'
+import {DiGithubAlt} from 'react-icons/di'
 import {AiOutlineWhatsApp} from 'react-icons/ai'
 
 import {TweenMax} from 'gsap'
@@ -101,7 +101,7 @@ const LinksContainer = styled.div`
         padding-right: .3em;
     }
 `
-const NavLink = styled(Link)`
+const Lnk = styled.a`
     text-decoration: none;
     font-weight: 500;
     font-size: .8em;
@@ -158,16 +158,17 @@ const Navbar = () =>  {
                     <Logo>Karim</Logo>
                     
                     <LinksContainer>
-                        <NavLink to='#'>My work</NavLink>
-                        <NavLink to='#'>My skills</NavLink>
-                        <NavLink to='#'>Hire Me</NavLink>
+                        
+                        <Lnk href="#work">My work</Lnk>
+                        <Lnk href="#skills">My skills</Lnk>
+                        <Lnk href="https://wa.me/96178839346" target="_blank" rel="noreferrer">Hire Me</Lnk>
                     </LinksContainer>
                 </Content>
             </Container>
             <SocialContainer>
-                <a href="https://www.google.com/" target="_blank"><LinkedIn/></a>
-                <a href="https://www.google.com/" target="_blank"><Github/></a>
-                <a href="https://www.google.com/" target="_blank"><WhatsApp/></a>
+                <a href="https://www.linkedin.com/in/karim-sariddin-750940152/" target="_blank" rel="noreferrer"><LinkedIn/></a>
+                <a href="https://github.com/karimyilmaz" target="_blank" rel="noreferrer"><Github/></a>
+                <a href="https://wa.me/96178839346" target="_blank" rel="noreferrer"><WhatsApp/></a>
             </SocialContainer>
         </Nav>
     )
