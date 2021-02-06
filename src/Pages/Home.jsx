@@ -21,23 +21,57 @@ const Container = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
+
+    &::before{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        height: 295px;
+        width: 295px;
+        border-radius: 50%;
+        background: #5D00D7;
+        opacity: 0.3;
+        z-index: -1;
+        
+        @media(max-width: 375px){
+            height: 200px;
+            width: 200px;
+        }
+
+        @media(max-height: 812px){
+            height: 300px;
+            width: 300px;
+        }
+    }
+
+    
 `
+const IContainer = styled.div`
+    height: 120px;
+
+    @media(max-width: 965px){
+        height: 0px;
+    }
+
+`
+
 const FeaturedContainer = styled.div`
-    margin-top: 60%;
+    margin-top: 70%;
 
     /* @media(max-width: 1235px){
         margin-top: 60%;
     } */
 
     @media(max-width: 1084px){
-        margin-top: 90%;
+        margin-top: 100%;
     }
 
     @media(max-width: 1001px){
-        margin-top: 205%;
+        margin-top: 210%;
     }
     @media(max-width: 965px){
-        margin-top: 240%;
+        margin-top: 250%;
 
     }
 
@@ -158,6 +192,7 @@ const Home = () => {
            <Navbar/>
             <Hero/>
             <Container>
+                <IContainer></IContainer>
                 <Featured
                 reversed = {false}   
                 showCircle = {true}

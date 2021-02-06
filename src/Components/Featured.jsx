@@ -12,7 +12,7 @@ const FeaturedSection = styled.div`
     padding: ${(props) => (props.reversed ? '3em 6em 0 0;' : '3em 0 0 6em;')}; 
     /* padding: 0 0 0 0;     */
         
-    ${(props) => (!props.reversed && props.showCircle && css`&::before{
+    /* ${(props) => (!props.reversed && props.showCircle && css`&::before{
         position: absolute;
         content: '';
         top: 0;
@@ -36,7 +36,7 @@ const FeaturedSection = styled.div`
 
         
         }`
-    )}
+    )} */
 
     @media(max-width: 1069px){
         padding: ${(props) => (props.reversed ? '3em 3em 0 0;' : '3em 0 0 3em;')}; 
@@ -177,7 +177,7 @@ const Featured = ({reversed, showCircle, smheading, heading2, paragraph, source}
             {
                 scrollTrigger: {
                     trigger: contentRef.current,
-                    start: 'top-=20px center',
+                    start: 'top-=20px center'
                     // markers: true
             },
             duration: 1,
