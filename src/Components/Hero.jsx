@@ -104,15 +104,14 @@ const Content = styled.div`
 
 const Hero = () => {
     let scroll = useRef() //{current: svg}
-    let animate_scroll
+    // let animate_scroll
     let hero_container = useRef()
     let hero_design = useRef([])
     hero_design.current = [0,0,0,0,0,0,0,0].map((ref, index) => hero_design.current[index] = React.createRef())
     
 
     useEffect(() => {
-            animate_scroll = TweenMax.to(scroll.current, 1.2, {attr:{cy: 40.8788}})    
-            animate_scroll.repeat(-1).yoyo(true)    
+            TweenMax.to(scroll.current, 1.2, {attr:{cy: 40.8788}}).repeat(-1).yoyo(true)    
         
             TweenMax.to(hero_container.current, 2, {visibility: "visible", height: "calc(100% - 80px)"})    
 
