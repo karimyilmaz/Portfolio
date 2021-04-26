@@ -11,7 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import elixi from '../Images/elixi.png'
 import papa from '../Images/papadapulos.png'
-import cappa from '../Images/travel_cappadocia.png'
+import cappa from '../Images/travelcappadocia.png'
 import room from '../Images/room.png'
 
 const HomeContainer = styled.div`
