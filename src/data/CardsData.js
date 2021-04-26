@@ -5,7 +5,7 @@ import logo from '../Images/logo.svg'
 export const cardsData = [
     {source: arrow, 
      heading: 'UX/UI Design',
-     paragraph: 'From Usability to Typography. Following the best UX/UI practices for a better user experience.'
+     paragraph: 'From Usability to Typography. Following the best UX/UI practices for a better user experience'
     },
     {source: div, 
      heading: 'FrontEnd Developement',
@@ -13,7 +13,7 @@ export const cardsData = [
     },
     {source: logo, 
      heading: 'Identity Design',
-     paragraph: "Following the company's visual identity. Building eye-catching visuals and considering color psychology."
+     paragraph: "Following the company's identity. Building eye-catching visuals considering color psychology"
     }
-       
+    
 ]
