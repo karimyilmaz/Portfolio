@@ -13,7 +13,7 @@ export const cardsData = [
     },
     {source: logo, 
      heading: 'Identity Design',
-     paragraph: "Following the company's visual identity. Building eye-catching visuals and cosidering color psychology."
+     paragraph: "Following the company's visual identity. Building eye-catching visuals and considering color psychology."
     }
        
 ]
