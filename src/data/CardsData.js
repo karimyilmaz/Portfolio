@@ -5,15 +5,15 @@ import logo from '../Images/logo.svg'
 export const cardsData = [
     {source: arrow, 
      heading: 'UX/UI Design',
-     paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum sollicitudin gravida faucibus eget elementum.'
+     paragraph: 'From Usability to Typography. Following the best UX/UI practices for a better user experience.'
     },
     {source: div, 
      heading: 'FrontEnd Developement',
-     paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum sollicitudin gravida faucibus eget elementum.'
+     paragraph: 'Using the latest frontend technologies SASS, React.js, gsap, Styled-Components etc.. '
     },
     {source: logo, 
      heading: 'Identity Design',
-     paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum sollicitudin gravida faucibus eget elementum.'
+     paragraph: "Following the company's visual identity. Building eye-catching visuals and cosidering color psychology."
     }
        
 ]

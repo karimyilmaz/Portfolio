@@ -7,7 +7,7 @@ import {TweenMax} from 'gsap'
 const HeroContainer = styled.div`
     display: grid;
     grid-template-columns: 66% auto;
-    width: 100%;
+    /* width: 100%; */
     /* height: calc(100% - 80px); */
     height: calc(100% - 180px);
     visibility: hidden;
@@ -18,7 +18,7 @@ const HeroContainer = styled.div`
         width: 100%;
     }
 
-    @media(max-width: 1069px){
+    @media(max-width: 1140px){
         grid-template-columns: 100%;
 
         #hero-design{
@@ -36,15 +36,20 @@ const Container = styled.div`
 `
 
 const Content = styled.div`
-    padding: 5% 6em;
+    /* padding-left: 110px; */
+    padding: 80px 0px 0px 110px;
     cursor: context-menu;
 
+    @media(max-width: 1140px){
+        padding: 80px 110px 0px 110px;
+    }
+    
     @media(max-width: 683px){
-        padding: 5% 3em;
+        padding: 90px 20px;
     }
 
-    @media(max-width: 558px){
-        padding: 5% 1em;
+    @media(max-width: 526px){
+        padding: 85px 10px;
     }
 
     @media(max-width: 414px){
@@ -56,23 +61,23 @@ const Content = styled.div`
     }
 
     h1{
-        line-height: 130%;
+        line-height: 140%;
         width: 400px;
         color: #fff;
-        font-size: 2.7em;
+        font-size: 60px;
         font-weight: bold;
 
-        @media(max-width: 1069px){
+        @media(max-width: 1140px){
             width: 100%;
             text-align: center;
         }
 
         @media(max-width: 879px){
-            font-size: 2.5em;
+            font-size: 50px;
         }
 
         @media(max-width: 526px){
-            font-size: 1.9em;
+            font-size: 45px;
         }
 
         
@@ -80,13 +85,14 @@ const Content = styled.div`
 
     h4{
         color: #FF64CB;
-        font-size: 1.3em;
+        font-size: 26px;
+        letter-spacing: 1px;
         
         span{
             margin-right: 4px;
         }
         
-        @media(max-width: 1069px){
+        @media(max-width: 1140px){
             width: 100%;
             text-align: center;
         }
@@ -95,9 +101,7 @@ const Content = styled.div`
     const ImageContainer = styled.div`
         display: flex;
 
-        
-
-        @media(max-width: 1069px){
+        @media(max-width: 1140px){
             justify-content: center;
         }
 `

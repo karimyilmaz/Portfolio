@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const FooterSection = styled.div`
     position: relative;
+    z-index: 4;
     display: grid;
     grid-template-columns: 66% auto;
     width: 100%;
@@ -25,13 +26,13 @@ const Content = styled.div`
     display: flex;
     width: 100%;
     height: 30%;
-    padding-left: 6em;
-    margin-top: 1em;
+    padding-left: 110px;
+    margin-top: 20px;
     justify-content: space-between;
     align-items: center;
 
     @media(max-width: 900px){
-        padding-right: 6em;
+        padding-right: 110px;
     }
 
     @media(max-width: 765px){
@@ -57,15 +58,23 @@ const Content = styled.div`
 const Logo = styled(Link)`
     color: #00F7FF;
     font-weight: 700;
-    font-size: 47px;
+    font-size: 40px;
     text-decoration: none;
 
     @media(max-width: 506px){
+        font-size: 45px;
+    }
+
+    @media(max-width: 414px){
         font-size: 40px;
     }
 
-    @media(max-width: 320px){
+    @media(max-width: 375px){
         font-size: 30px;
+    }
+
+    @media(max-width: 320px){
+        font-size: 39px;
     }
 
     @media(max-width: 280px){
@@ -84,26 +93,33 @@ const LinksContainer = styled.div`
 const Lnk = styled.a`
     text-decoration: none;
     font-weight: 500;
-    font-size: .8em;
+    font-size: 17px;
     color: #fff;
-    padding: 0em .9em;
-    
+    padding: 0 20px;
+    cursor: pointer;
+
     @media(max-width: 506px){
-        font-size: .7em;
+        font-size: 14px;
+        padding: 0 10px;
     }
     
     @media(max-width: 414px){
-        font-size: .6em;
+        font-size: 16px;
         padding-right: 1em;
     }
 
+    @media(max-width: 375px){
+        font-size: 15px;
+        
+    }
+
     @media(max-width: 360px){
-        font-size: .5em;
+        font-size: 15px;
         padding-right: 1em;
     }
 
     @media(max-width: 280px){
-        font-size: .4em;
+        font-size: 14px;
     }
     
 `
@@ -126,17 +142,20 @@ const FooterDiv = styled.div`
     svg{
         position: absolute;
         bottom: 20.5%;
-        
+               
         
     }
 `
 
-let Footer = () => {
+let Footer = ({setClickedSkillsFooter}) => {
+    
     gsap.registerPlugin(ScrollTrigger)
 
     let footerSvg = useRef([0, 0, 0, 0, 0, 0, 0])  
     footerSvg.current = footerSvg.current.map(item => React.createRef())
     
+    
+
     useEffect(() => {
         // TweenMax.to(footerSvg.current[1].current, 4, {attr: {"fill-opacity": 0.91}}).repeat(16).yoyo(true)
         // TweenMax.to(footerSvg.current[2].current, 3, {attr: {"fill-opacity": 0.91}}).repeat(16).yoyo(true)
@@ -170,8 +189,7 @@ let Footer = () => {
                     <Logo>Karim</Logo>
                     
                     <LinksContainer>
-                        <Lnk href="#work">My work</Lnk>
-                        <Lnk href="#skills">My skills</Lnk>
+                        <Lnk onClick={() => {setClickedSkillsFooter(true)}}>My skills</Lnk>
                         <Lnk href="https://wa.me/96178839346" target="_blank">Hire Me</Lnk>
                     </LinksContainer>
                 </Content>

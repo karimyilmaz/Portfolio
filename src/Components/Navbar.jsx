@@ -12,33 +12,44 @@ const Nav = styled.nav`
     
     display: grid;
     grid-template-columns: 66% auto;
-    width: 100%;
+    /* width: 100%; */
     height: 0px;
 
-    @media(max-width: 1069px){
+    /* @media(max-width: 1069px){
+        grid-template-columns: 100%;
+
+    } */
+    
+    
+    @media(max-width: 1140px){
         grid-template-columns: 100%;
 
     }
+
 `
 
 const Container = styled.div`
     width: 100%;
     background: #5D00D7;
     display: flex; 
-    
 `
 const Content = styled.div`
     display: flex;
     width: 100%;
-    padding-left: 6em;
+    padding-left: 110px;
+    align-items: center;
     justify-content: space-between;
 
-    @media(max-width: 879px){
-        padding-left: 4em;
+    @media(max-width: 1140px){
+        padding-left: 70px;
     }
 
-    @media(max-width: 666px){
-        padding-left: 2em;
+    @media(max-width: 877px){
+        padding-left: 20px;
+    }
+
+    @media(max-width: 636px){
+        padding-left: 20px;
     }
 
     @media(max-width: 506px){
@@ -55,42 +66,50 @@ const Content = styled.div`
 const Logo = styled(Link)`
     color: #00F7FF;
     font-weight: 700;
-    font-size: 47px;
+    font-size: 40px;
     text-decoration: none;
     display: flex;
     
     @media(max-width: 414px){
-        font-size: 45px;
+        font-size: 40px;
+    }
+
+    @media(max-width: 375px){
+        font-size: 30px;
     }
 
     @media(max-width: 320px){
-        font-size: 39px;
+        font-size: 28px;
     }
+
+    
 `
 const LinksContainer = styled.div`
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     align-items: center;
+    padding-right: 30px;
+    /* justify-content: space-around; */
     
-    
-
-    @media(max-width: 1069px){
+    /* @media(max-width: 1140px){
         justify-content: flex-end;
-        padding-right: 6em;
+        /* padding-right: 10px; */
+        /* padding-right: 110px; */
+    /* }  */
 
+    @media(max-width: 1140px){
+        justify-content: flex-end;
+        padding-right: 70px;
     }
 
-    @media(max-width: 879px){
-        padding-right: 4em;
+    @media(max-width: 877px){
+        padding-right: 20px;
     }
 
-    @media(max-width: 666px){
-        padding-right: 2em;
-    }
-
-    @media(max-width: 589px){
-        width: 60%;
+    @media(max-width: 636px){
+        padding-right: 20px;
+        width: 45%;
     }
 
     @media(max-width: 506px){
@@ -98,22 +117,32 @@ const LinksContainer = styled.div`
     }
 
     @media(max-width: 414px){
-        padding-right: .3em;
+        padding-right: .5em;
+        padding-top: .5em;
     }
 `
 const Lnk = styled.a`
     text-decoration: none;
     font-weight: 500;
-    font-size: .8em;
+    font-size: 17px;
     color: #fff;
-    padding: 0em .9em;  
-     
+    padding: 0em 20px;
+    cursor: pointer;  
+
+    @media(max-width: 636px){
+        padding: 0px 10px;  
+    } 
+
     @media(max-width: 546px){
-        padding: 0em .3em;  
+        padding: 0 20px;  
     }
     
+    @media(max-width: 500px){
+        padding: 0 10px;  
+    }
+
     @media(max-width: 375px){
-        font-size: .7em;  
+        font-size: 15px;  
     }
     
     @media(max-width: 320px){
@@ -124,27 +153,32 @@ const Lnk = styled.a`
 
 
 const SocialContainer = styled.div`
-    font-size: 1.5em;
+    font-size: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    @media(max-width: 1069px){
+    /* @media(max-width: 1069px){
+        display: none;
+    } */
+
+    
+    @media(max-width: 1140px){
         display: none;
     }
 `
 
 const LinkedIn = styled(FaLinkedinIn)`
-    margin-right: 7px;
+    margin-right: 15px;
 `
 
 //DiGithubAlt, DiGithubFull
 const Github = styled(DiGithubAlt)`
-    margin-right: 7px;
+    margin-right: 15px;
 `
 const WhatsApp = styled(AiOutlineWhatsApp)``
 
-const Navbar = () =>  {
+const Navbar = ({setClickedSkills}) =>  {
     const navRef = useRef() 
     
     useEffect(() => {
@@ -159,8 +193,8 @@ const Navbar = () =>  {
                     
                     <LinksContainer>
                         
-                        <Lnk href="#work">My work</Lnk>
-                        <Lnk href="#skills">My skills</Lnk>
+                        {/* <Lnk href="#work">My work</Lnk> */}
+                        <Lnk   onClick={() => {setClickedSkills(true)}}>My skills</Lnk>
                         <Lnk href="https://wa.me/96178839346" target="_blank" rel="noreferrer">Hire Me</Lnk>
                     </LinksContainer>
                 </Content>

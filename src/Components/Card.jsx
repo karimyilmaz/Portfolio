@@ -16,7 +16,7 @@ const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items:center;
-    padding: 2em 0;
+    padding: 30px 0 30px 0;
 
     @media(max-width: 1001px){
         height: 350px;
@@ -37,26 +37,32 @@ const CardContainer = styled.div`
 const Heading = styled.h3`
     font-weight: 800;
     text-align: center;
+    font-size: 25px;
+    margin-bottom: -20px;
 
-    
     @media(max-width: 1101px){
-        font-size: 1em;
+        font-size: 22px;
     }
     @media(max-width: 1001px){
-        font-size: 1.2em;
+        font-size: 24px;
     }
+
+    @media(max-width: 965px){
+        margin-bottom: 20px;
+    }
+
 `
 const Paragraph = styled.p`
     font-weight: 400;
-    font-size: .9em;
+    font-size: 18px;
     text-align: center;
-    max-width: 250px;
+    max-width: 260px;
 
     @media(max-width: 1101px){
-        font-size: .8em;
+        font-size: 17px;
     }
     @media(max-width: 1001px){
-        font-size: .9em;
+        font-size: 17.5px;
     }
 `
 const Image = styled.img`
